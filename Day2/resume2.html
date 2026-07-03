@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- viewport 설정 : 반응형 디자인을 위해 화면 크기에 맞춰 페이지 폭을 조절하도록 함 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장혁수의 이력서</title>
+    <!-- External CSS 연결 : 같은 폴더의 resume_style.css 파일을 불러옴 -->
+    <link rel="stylesheet" href="resume2_style.css">
+    <!-- Font Awesome : 전화/이메일/깃허브 아이콘을 쓰기 위한 외부 아이콘 라이브러리 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+ 
+  <!-- nav 태그 : 페이지 내 다른 섹션으로 이동하는 내비게이션 메뉴. 사이드바로 고정 배치(CSS position: fixed) -->
+  <nav class="sidebar">
+    <div class="sidebar-container">
+      <!-- ul + li + a : href="#아이디" 형태로 같은 페이지 안의 섹션으로 이동(앵커 링크) -->
+      <ul class="sidebar-menu">
+        <li><a href="#introduce">자기소개</a></li>
+        <li><a href="#hobby">취미 &amp; 취향</a></li>
+        <li><a href="#skills">보유 기술</a></li>
+        <li><a href="#career">경력</a></li>
+        <li><a href="#education">교육</a></li>
+        <li><a href="#awards">수상</a></li>
+        <li><a href="#certifications">자격증</a></li>
+        <li><a href="#contact">연락처</a></li>
+        <li><a href="#message">메시지</a></li>
+      </ul>
+    </div>
+  </nav>
+ 
+  <!-- id="resume" : 사이드바 메뉴 중 "이력서"가 가리키는 대상 영역. class="container"로 가운데 정렬된 카드 박스 스타일 적용 -->
+  <div id="resume" class="container">
+    <!-- main 태그 : 이 문서의 핵심 콘텐츠 영역임을 의미하는 semantic 태그 -->
+    <main>
+ 
+      <!-- section 태그 : 하나의 독립된 주제 영역을 의미. 여기서는 "이력서 상단 헤더" -->
+      <section id="resume-header">
+        <!-- header-content : Flexbox(justify-content: space-between)로 텍스트와 사진을 좌우로 정렬 -->
+        <div class="header-content">
+          <div class="header-text">
+            <h1>장혁수</h1>
+            <span><i class="fa-solid fa-mobile-screen"></i>&nbsp;010-xxxx-2016</span>
+            <span><i class="fa-solid fa-at"></i>&nbsp;sapienc2@naver.com</span>
+            <span>
+              <i class="fa-brands fa-github"></i>
+              <a href="https://github.com/jrohan93/resume" target="_blank" rel="noopener">장혁수's Github</a>
+            </span>
+          </div>
+          <!-- profile-photo : img를 원형(border-radius: 50%)으로 잘라서 프로필 사진처럼 보이게 함 -->
+          <div class="profile-photo">
+            <img src="Profile.png" alt="장혁수 프로필 사진">
+          </div>
+        </div>
+      </section>
+ 
+      <!-- 자기소개 섹션 -->
+      <section id="introduce">
+        <h2>자기소개</h2>
+        <!-- white-space: pre-line (CSS) 덕분에 문장 중간의 줄바꿈이 그대로 보임 -->
+        <p>안녕하세요. 과제용 이력서입니다.
+콜센터 AS상담 업무를 거쳐, 현재는 AI 헬스케어 부트캠프에서 새로운 커리어를 준비하고 있습니다.</p>
+      </section>
+ 
+      <!-- 취미 & 취향 : id만 있는 div (section 대신 div 사용 - 예시 코드의 Skills/Experience 부분과 동일한 패턴) -->
+      <div id="hobby">
+        <h2>취미 &amp; 개인의 취향</h2>
+ 
+        <!-- skills-group : 하나의 카테고리(예: 취미) 묶음. h3는 카테고리 제목 -->
+        <div class="skills-group">
+          <h3>취미</h3>
+          <!-- skills-container : Flexbox(flex-wrap: wrap)로 태그들을 가로로 나열, 넘치면 자동 줄바꿈 -->
+          <div class="skills-container">
+            <span class="skill-tag">게임</span>
+            <span class="skill-tag">요리</span>
+            <span class="skill-tag">그 외 여러가지</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <h3>좋아하는 음식</h3>
+          <div class="skills-container">
+            <span class="skill-tag">고기</span>
+            <span class="skill-tag">계란</span>
+            <span class="skill-tag">생선</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <h3>좋아하는 영화</h3>
+          <div class="skills-container">
+            <span class="skill-tag">공포영화 빼고 전부</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <h3>좋아하는 책</h3>
+          <div class="skills-container">
+            <span class="skill-tag">역사 관련</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <h3>좋아하는 노래 장르</h3>
+          <div class="skills-container">
+            <span class="skill-tag">힙합 빼고 전부</span>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- 보유 기술 -->
+      <div id="skills">
+        <h2>보유 기술</h2>
+        <div class="skills-group">
+          <h3>프로그래밍 &amp; 데이터베이스</h3>
+          <div class="skills-container">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">MySQL</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <h3>협업 &amp; AI 도구</h3>
+          <div class="skills-container">
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Claude</span>
+            <span class="skill-tag">ChatGPT</span>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- 경력 & 업무 경험 -->
+      <div id="career">
+        <h2>경력 &amp; 업무 경험</h2>
+ 
+        <!-- experience-item : 경력 한 건을 나타내는 반복 블록. border-bottom으로 항목 사이를 구분 -->
+        <div class="experience-item">
+          <!-- experience-info : Flexbox(justify-content: space-between)로 회사명은 왼쪽, 기간은 오른쪽에 배치 -->
+          <div class="experience-info">
+            <span class="company">아르바이트</span>
+            <span class="period">2013.04 ~ 2017.07</span>
+          </div>
+          <div class="role">
+            <span class="position">주방</span>
+          </div>
+          <!-- details : 세부 업무 목록 -->
+          <ul class="details">
+            <li>패스트푸드</li>
+          </ul>
+        </div>
+ 
+        <div class="experience-item">
+          <div class="experience-info">
+            <span class="company">헬프데스크</span>
+            <span class="period">2017.07 ~ 2020.02</span>
+          </div>
+          <div class="role">
+            <span class="position">헬퍼</span>
+          </div>
+          <ul class="details">
+            <li>헬프데스크 업무</li>
+          </ul>
+        </div>
+ 
+        <div class="experience-item">
+          <div class="experience-info">
+            <span class="company">콜센터</span>
+            <span class="period">2021.04 ~ 2025.09</span>
+          </div>
+          <div class="role">
+            <span class="position">AS상담</span>
+          </div>
+          <ul class="details">
+            <li>AS상담 업무</li>
+          </ul>
+        </div>
+ 
+        <!-- 마지막 항목 : CSS에서 .experience-item:last-child { border-bottom: none } 처리되어 밑줄 없음 -->
+        <div class="experience-item">
+          <div class="experience-info">
+            <span class="company">커리어 브레이크</span>
+            <span class="period">2025.10 ~ 2026.04</span>
+          </div>
+          <div class="role">
+            <span class="position">재정비 기간</span>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- 교육 : table 태그로 "기간 - 내용"을 표(th/td) 형태로 정리. 시간 순서대로(오래된 것 → 최근) 정렬 -->
+      <div id="education">
+        <h2>교육</h2>
+        <table class="education-table">
+          <tr>
+            <th>2012.02 ~ 2017.07</th>
+            <td>한국폴리텍 1대학 정수캠퍼스 (전문대)<br>유비쿼터스전자과 입학 → 모바일통신과 졸업</td>
+          </tr>
+          <tr>
+            <th>2023.02 ~ 2025.07</th>
+            <td>한양사이버대학교<br>응용소프트웨어공학과 입학·졸업</td>
+          </tr>
+          <tr>
+            <th>2026.04 ~ 현재</th>
+            <td>AI 헬스케어 부트캠프 (교육중)</td>
+          </tr>
+        </table>
+      </div>
+ 
+      <!-- 수상 : 현재는 없지만 나중에 생기면 채울 수 있도록 항목 자체는 남겨둠 -->
+      <div id="awards">
+        <h2>수상</h2>
+        <p class="empty-note">없음</p>
+      </div>
+ 
+      <!-- 자격증 : 현재는 없지만 나중에 생기면 채울 수 있도록 항목 자체는 남겨둠 -->
+      <div id="certifications">
+        <h2>자격증</h2>
+        <p class="empty-note">없음</p>
+      </div>
+ 
+      <!-- 연락처 & 링크 -->
+      <section id="contact">
+        <h2>연락처 &amp; 링크</h2>
+        <p>제 코드와 프로젝트가 궁금하시다면 아래에서 확인하실 수 있습니다.</p>
+        <p><a href="https://github.com/jrohan93/resume" target="_blank" rel="noopener">GitHub 이력서 링크</a></p>
+      </section>
+ 
+      <!-- 메시지 보내기 : form 태그로 사용자 입력을 받아 mailto 이메일로 전송 -->
+      <section id="message">
+        <h2>메세지 보내기</h2>
+        <p>궁금한 점이나 제안하실 내용이 있다면 편하게 남겨주세요.</p>
+        <form class="contact-form" action="mailto:sapienc2@naver.com" method="post" enctype="text/plain">
+          <!-- form-row : label + input을 세로로 묶은 하나의 입력 줄 (Flexbox column) -->
+          <div class="form-row">
+            <label for="name">이름</label>
+            <input type="text" id="name" name="name" placeholder="이름을 입력하세요" required>
+          </div>
+          <div class="form-row">
+            <label for="email">이메일</label>
+            <!-- type="email" : 이메일 형식인지 브라우저가 자동으로 검사 -->
+            <input type="email" id="email" name="email" placeholder="답변받을 이메일 주소" required>
+          </div>
+          <div class="form-row">
+            <label for="message">메시지</label>
+            <input type="text" id="message" name="message" placeholder="전달하실 내용을 입력하세요" required>
+          </div>
+          <!-- type="submit" : 클릭 시 form 내용을 action에 지정된 mailto 주소로 전송 -->
+          <button type="submit">메일 보내기</button>
+        </form>
+      </section>
+ 
+    </main>
+  </div>
+ 
+</body>
+</html>

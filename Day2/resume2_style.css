@@ -1,0 +1,420 @@
+/* 구글 폰트에서 한글 폰트(Noto Sans KR)를 불러옴 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
+ 
+/* :root 에 변수를 선언해두면 색상을 한 곳에서 관리할 수 있음 (CSS Custom Properties) */
+:root {
+  --accent: #167D6B;      /* 헬스케어 teal - 개인 브랜드 컬러 */
+  --accent-light: #E4F3EF;
+  --ink: #222;
+  --muted: #666;
+  --line: #eee;
+}
+ 
+/* box-sizing: border-box : padding과 border를 width/height 안쪽에 포함시켜서
+   Box Model 계산을 훨씬 예측하기 쉽게 만들어줌 (모든 요소에 적용) */
+* {
+  box-sizing: border-box;
+}
+ 
+body {
+  text-align: left;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+  /* 왼쪽 padding 200px : 고정된 사이드바(width 200px)만큼 본문 콘텐츠를 오른쪽으로 밀어줌 */
+  padding: 0 0 0 200px;
+  margin: 0;
+}
+ 
+a {
+  color: var(--accent);
+}
+ 
+/* ---------- 사이드바 (nav.sidebar) ---------- */
+.sidebar {
+  background-color: #333;
+  color: #fff;
+  width: 200px;
+  height: 100vh;      /* 화면 높이 전체를 채움 */
+  position: fixed;    /* 스크롤해도 항상 같은 자리에 고정 */
+  top: 0;
+  left: 0;
+  z-index: 1000;       /* 다른 요소보다 위에 쌓이도록 함 */
+  padding-top: 40px;
+}
+ 
+.sidebar-container {
+  padding: 0 20px;
+}
+ 
+.sidebar-menu {
+  list-style: none;   /* li 앞의 점(bullet) 제거 */
+  padding: 0;
+  margin: 0;
+  /* Flexbox : 메뉴 항목들을 세로로 정렬 (아이템 정렬 학습 내용 적용) */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;           /* 항목 사이 간격을 margin 대신 gap으로 처리 */
+}
+ 
+.sidebar-menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95em;
+  transition: color 0.3s;   /* 색이 서서히 바뀌도록 애니메이션 효과 */
+}
+ 
+.sidebar-menu li a:hover,
+.sidebar-menu li a:focus-visible {
+  color: var(--accent);
+}
+ 
+/* ---------- 본문 컨테이너 (div#resume.container) ---------- */
+.container {
+  max-width: 800px;
+  margin: 40px auto;   /* 좌우 auto로 가운데 정렬 */
+  background-color: #fff;
+  padding: 40px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);  /* 은은한 그림자로 카드처럼 보이게 함 */
+  border-radius: 8px;
+  min-height: calc(100vh - 80px);
+}
+ 
+/* ---------- 헤더 (section#resume-header) ---------- */
+#resume-header {
+  border-bottom: 2px solid #333;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+ 
+.header-content {
+  /* Flexbox : 텍스트 영역과 프로필 사진을 양 끝으로 정렬 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+ 
+.profile-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;      /* 정사각형 이미지를 원형으로 */
+  object-fit: cover;        /* 비율 유지하며 원 안을 꽉 채움 */
+  border: 3px solid var(--accent-light);
+  background: #eee;
+}
+ 
+#resume-header h1 {
+  margin: 0 0 10px 0;
+  font-size: 2.5em;
+  color: #222;
+}
+ 
+#resume-header span {
+  margin-right: 20px;
+  color: #666;
+  font-size: 0.95em;
+}
+ 
+/* Font Awesome 아이콘(전화/이메일/깃허브) 색상과 정렬 */
+#resume-header .header-text i {
+  color: var(--muted);
+  width: 18px;
+  text-align: center;
+}
+ 
+.header-text a {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.95em;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+ 
+.header-text a:hover {
+  text-decoration: underline;
+}
+ 
+/* ---------- 섹션 공통 ---------- */
+main section,
+main > div {
+  margin-bottom: 40px;
+}
+ 
+main h2 {
+  font-size: 1.5em;
+  border-left: 5px solid var(--accent);   /* 왼쪽 굵은 선으로 제목을 강조 */
+  padding-left: 15px;
+  margin-bottom: 20px;
+  color: #222;
+}
+ 
+#introduce p {
+  color: #555;
+  font-size: 1.05em;
+  margin-bottom: 10px;
+  white-space: pre-line;   /* 텍스트 안의 줄바꿈(\n)을 그대로 화면에 반영 */
+}
+ 
+/* ---------- 취미 & 취향 : skill-tag ---------- */
+.skills-group {
+  margin-bottom: 20px;
+  padding-left: 15px;
+}
+ 
+.skills-group h3 {
+  font-size: 0.9em;
+  color: #888;
+  margin-bottom: 8px;
+  text-transform: uppercase;   /* 영문이면 대문자로, 한글은 영향 없음 */
+  letter-spacing: 1px;
+}
+ 
+.skills-container {
+  /* Flexbox + flex-wrap: wrap : 태그가 많아지면 자동으로 다음 줄로 넘어감 */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+ 
+.skill-tag {
+  background-color: var(--accent-light);
+  color: var(--accent);
+  padding: 6px 14px;
+  border-radius: 20px;    /* 둥근 알약(pill) 모양 */
+  font-size: 0.85em;
+  font-weight: 600;
+}
+ 
+/* ---------- 경력 : experience-item ---------- */
+.experience-item {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--line);   /* 항목 사이 구분선 */
+}
+ 
+/* :last-child : 마지막 항목에는 구분선을 없애 깔끔하게 마무리 */
+.experience-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+ 
+.experience-info {
+  /* Flexbox : 회사명(왼쪽)과 기간(오른쪽)을 양 끝 정렬 */
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 5px;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+ 
+.experience-info .company {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #222;
+}
+ 
+.experience-info .period {
+  color: #888;
+  font-size: 0.9em;
+}
+ 
+.experience-item .position {
+  font-weight: 600;
+  color: #555;
+}
+ 
+/* 경력 세부 업무 목록 */
+.details {
+  margin: 8px 0 0;
+  padding-left: 20px;
+  font-size: 0.92em;
+  list-style: disc;
+  color: #666;
+}
+ 
+.details li {
+  margin-bottom: 4px;
+}
+ 
+/* ---------- 교육 / Awards / Certifications : education-table 재사용 ---------- */
+.education-table {
+  width: 100%;
+  border-collapse: collapse;   /* 표 테두리가 겹치지 않고 하나로 합쳐지도록 함 */
+  margin-bottom: 10px;
+}
+ 
+.education-table th {
+  text-align: left;
+  width: 150px;
+  color: #888;
+  font-weight: 400;
+  font-size: 0.9em;
+  padding: 10px 0;
+}
+ 
+.education-table td {
+  padding: 10px 0;
+  color: #444;
+  font-weight: 500;
+}
+ 
+/* ---------- 아직 내용이 없는 항목 표시용 placeholder ---------- */
+/* 점선 테두리 + 옅은 배경 + 회색 기울임 글씨로 "입력이 필요한 곳"임을 시각적으로 알려줌 */
+.placeholder {
+  border: 1.5px dashed #ccc;
+  background: #fafafa;
+  color: #999;
+  font-style: italic;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.9em;
+  list-style: none;
+}
+ 
+/* ::before 가상 요소로 연필 이모지를 텍스트 앞에 자동으로 붙여줌 */
+.placeholder::before {
+  content: "✏️ ";
+}
+ 
+/* 표(table) 안에서는 박스 스타일 대신 텍스트 스타일만 적용 */
+th.placeholder,
+td.placeholder {
+  border: none;
+  background: transparent;
+  border-radius: 0;
+  padding: 10px 0;
+}
+ 
+.placeholder-inline {
+  color: #bbb;
+  font-style: italic;
+}
+ 
+/* 수상/자격증처럼 "현재는 없지만 항목 자체는 남겨두는" 경우 사용하는 담백한 스타일 */
+.empty-note {
+  color: #aaa;
+  font-size: 0.92em;
+}
+ 
+/* ---------- 메시지 폼 ---------- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 420px;
+  margin-top: 20px;
+}
+ 
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+ 
+.form-row label {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: #666;
+}
+ 
+.form-row input {
+  font-family: inherit;
+  font-size: 0.95em;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: #333;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+ 
+/* focus-visible : 키보드로 tab 이동했을 때 포커스 표시 (접근성) */
+.form-row input:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+ 
+.contact-form button {
+  align-self: flex-start;   /* 버튼만 flex 컨테이너 안에서 왼쪽 크기에 맞춤 */
+  font-weight: 700;
+  font-size: 0.92em;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  padding: 12px 26px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+ 
+.contact-form button:hover,
+.contact-form button:focus-visible {
+  background: #12695a;
+  transform: translateY(-2px);
+}
+ 
+/* ==========================================================
+   반응형 디자인 : 화면 폭이 768px 이하(태블릿/모바일)일 때 레이아웃 변경
+   ========================================================== */
+@media (max-width: 768px) {
+  body {
+    /* 사이드바가 상단 가로 메뉴로 바뀌므로 왼쪽 padding 대신 위쪽 padding 사용 */
+    padding: 64px 0 0 0;
+  }
+ 
+  .sidebar {
+    width: 100%;
+    height: auto;
+    padding: 14px 0;
+  }
+ 
+  .sidebar-menu {
+    /* 세로 목록 -> 가로로 나열되는 메뉴로 전환 */
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 18px;
+  }
+ 
+  .container {
+    margin: 20px 16px;
+    padding: 24px;
+  }
+ 
+  .header-content {
+    flex-direction: column-reverse;   /* 모바일에서는 사진이 위, 텍스트가 아래 */
+    text-align: center;
+    gap: 16px;
+  }
+ 
+  .profile-photo img {
+    width: 90px;
+    height: 90px;
+  }
+ 
+  #resume-header h1 {
+    font-size: 1.9em;
+  }
+ 
+  .experience-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+ 
+  .education-table th {
+    width: 100px;
+  }
+}
+ 
+/* 사용자가 OS에서 "동작 줄이기(Reduce Motion)"를 설정했다면 모든 transition을 꺼줌 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
