@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
+ 
+:root {
+  --accent: teal;           /* 헬스케어 느낌의 청록색 - 개인 브랜드 컬러 */
+  --accent-light: honeydew; /* 아주 옅은 민트빛 배경 */
+  --accent-dark: darkslategray; /* 버튼 hover 시 조금 더 진한 색 */
+  --ink: black;             /* 진한 제목 글자색 */
+  --muted: dimgray;         /* 옅은 설명 글자색 */
+  --line: lightgray;        /* 구분선 색 */
+}
+ 
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+  line-height: 1.6;
+  color: black;
+  background-color: whitesmoke;
+}
+ 
+a {
+  color: var(--accent);
+}
+ 
+/* ---------- 데스크탑 고정 사이드바 (lg 이상에서만 보임) ---------- */
+.sidebar {
+  background-color: black;
+  color: white;
+  width: 200px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding-top: 40px;
+}
+ 
+.sidebar-container {
+  padding: 0 20px;
+}
+ 
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+ 
+.sidebar-menu li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95em;
+  transition: color 0.3s;
+}
+ 
+.sidebar-menu li a:hover,
+.sidebar-menu li a:focus-visible {
+  color: var(--accent);
+}
+ 
+/* 992px(Bootstrap lg breakpoint) 이상일 때만 고정 사이드바 너비만큼 본문을 밀어줌.
+   그 미만에서는 상단 navbar + offcanvas 메뉴를 쓰므로 padding이 필요 없음 */
+@media (min-width: 992px) {
+  body {
+    padding-left: 200px;
+  }
+}
+ 
+/* ---------- 본문 카드 영역 : Bootstrap .container 위에 얹는 카드 스타일 ---------- */
+.resume-container {
+  background-color: white;
+  padding: 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05); /* 그림자는 투명도 조절이 필요해서 예외적으로 rgba 사용 */
+  border-radius: 8px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+ 
+@media (max-width: 767.98px) {
+  .resume-container {
+    padding: 24px;
+  }
+}
+ 
+/* ---------- 헤더 ---------- */
+#resume-header {
+  border-bottom: 2px solid black;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+ 
+.profile-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-light);
+  background: lightgray;
+}
+ 
+#resume-header h1 {
+  margin: 0 0 10px 0;
+  font-size: 2.5em;
+  color: black;
+}
+ 
+#resume-header span {
+  margin-right: 20px;
+  color: dimgray;
+  font-size: 0.95em;
+}
+ 
+#resume-header .header-text i {
+  color: var(--muted);
+  width: 18px;
+  text-align: center;
+}
+ 
+.header-text a {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.95em;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+ 
+.header-text a:hover {
+  text-decoration: underline;
+}
+ 
+/* ---------- 섹션 공통 ---------- */
+main section,
+main > div {
+  margin-bottom: 40px;
+}
+ 
+main h2 {
+  font-size: 1.5em;
+  border-left: 5px solid var(--accent);
+  padding-left: 15px;
+  margin-bottom: 20px;
+  color: black;
+}
+ 
+#introduce p {
+  color: dimgray;
+  font-size: 1.05em;
+  margin-bottom: 10px;
+  white-space: pre-line;
+}
+ 
+/* ---------- 취미/취향/기술 태그 : Bootstrap badge를 우리 브랜드 컬러로 재정의 ---------- */
+.skills-group {
+  margin-bottom: 20px;
+  padding-left: 15px;
+}
+ 
+.skills-group h3 {
+  font-size: 0.9em;
+  color: gray;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+ 
+/* Bootstrap의 기본 badge 색상 대신 브랜드 teal 컬러를 적용 */
+.badge-accent {
+  background-color: var(--accent-light) !important;
+  color: var(--accent) !important;
+  font-weight: 600;
+  font-size: 0.85em;
+  padding: 6px 14px;
+}
+ 
+/* ---------- 경력 카드 (Bootstrap .card 위에 세부 스타일 추가) ---------- */
+.experience-item .card-body {
+  padding: 20px 24px;
+}
+ 
+.experience-info .company {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: black;
+}
+ 
+.experience-info .period {
+  color: gray;
+  font-size: 0.9em;
+}
+ 
+.experience-item .position {
+  font-weight: 600;
+  color: dimgray;
+}
+ 
+.details {
+  margin: 8px 0 0;
+  padding-left: 20px;
+  font-size: 0.92em;
+  list-style: disc;
+  color: dimgray;
+}
+ 
+.details li {
+  margin-bottom: 4px;
+}
+ 
+/* ---------- 교육 / 수상 / 자격증 : Bootstrap table-borderless + 커스텀 폭/여백 ---------- */
+.education-table th {
+  text-align: left;
+  width: 150px;
+  color: gray;
+  font-weight: 400;
+  font-size: 0.9em;
+  padding: 10px 0;
+}
+ 
+.education-table td {
+  padding: 10px 0;
+  color: black;
+  font-weight: 500;
+}
+ 
+.empty-note {
+  color: darkgray;
+  font-size: 0.92em;
+}
+ 
+/* ---------- 메시지 폼 : Bootstrap form-control 위에 브랜드 컬러 포커스 스타일 추가 ---------- */
+.resume-form {
+  max-width: 420px;
+}
+ 
+.resume-form .form-control:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 0.2rem var(--accent-light);
+}
+ 
+/* Bootstrap 기본 파란 버튼 대신 브랜드 teal 버튼 */
+.btn-accent {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: white;
+  border-radius: 20px;
+  font-weight: 700;
+  padding: 10px 26px;
+}
+ 
+.btn-accent:hover,
+.btn-accent:focus {
+  background-color: var(--accent-dark);
+  border-color: var(--accent-dark);
+  color: white;
+}
+ 
+/* ---------- 모바일 상단 navbar ---------- */
+.navbar .navbar-brand {
+  font-weight: 700;
+}
+ 
+/* 사용자가 OS에서 "동작 줄이기"를 설정했다면 모든 transition을 꺼줌 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
